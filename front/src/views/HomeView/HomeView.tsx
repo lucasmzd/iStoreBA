@@ -1,13 +1,12 @@
-import CardList from "@/components/CardList/CardList"
+import CardList from "@/components/CardList/CardList";
 
 const HomeView = () => {
+  return (
+    <div>
+      <h1>Home</h1>
+      <CardList />
+    </div>
+  );
+};
 
-    return (
-        <div>
-            <h1>Home</h1>
-            <CardList />
-        </div>
-    )
-}
-
-export default HomeView
+export default HomeView;

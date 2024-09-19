@@ -1,10 +1,8 @@
-import ProfileView from '@/views/ProfileView/ProfileView'
-import React from 'react'
+import ProfileView from "@/views/ProfileView/ProfileView";
+import React from "react";
 
 const Dashboard = () => {
-  return (
-    <ProfileView/>
-  )
-}
+  return <ProfileView />;
+};
 
-export default Dashboard
+export default Dashboard;

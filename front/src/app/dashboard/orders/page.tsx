@@ -1,10 +1,8 @@
-import React from 'react'
-import OrdersView from '@/views/OrdersView/OrdersView'
+import React from "react";
+import OrdersView from "@/views/OrdersView/OrdersView";
 
 function Orders() {
-  return (
-    <OrdersView/>
-  )
+  return <OrdersView />;
 }
 
-export default Orders
+export default Orders;

@@ -1,10 +1,8 @@
-import React from 'react'
-import CartView from '@/views/CartView/CartView'
+import React from "react";
+import CartView from "@/views/CartView/CartView";
 
 const Cart = () => {
-  return (
-    <CartView/>
-  )
-}
+  return <CartView />;
+};
 
-export default Cart
+export default Cart;
