@@ -12,3 +12,13 @@ export interface ICategory {
     id: number;
     name: string;
 }
+
+export interface ILoginProps {
+    email: string;
+    password: string;
+}
+
+export interface IErrorProps {
+    email?: string;
+    password?: string;
+}
