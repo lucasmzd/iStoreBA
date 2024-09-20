@@ -3,8 +3,15 @@ import React, { useEffect, useState } from "react";
 import { ILoginProps } from "../../interfaces/types";
 import { IErrorProps } from "../../interfaces/types";
 import { validateLoginForm } from "../../helpers/validate";
+import { login } from "@/helpers/auth.helper";
+import Swal from "sweetalert2";
+import { useRouter } from "next/navigation";
+
 
 const LoginView: React.FC = () => {
+
+  const router =useRouter()
+
   const initialState = {
     email: "",
     password: "",
@@ -18,9 +25,14 @@ const LoginView: React.FC = () => {
     setUserData({ ...userData, [name]: value });
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    alert("Se envio el formulario");
+    const response = await login(userData)
+    Swal.fire({
+      title: "Login successfully!",
+      icon: "success"
+    });
+    router.push("http://localhost:3000")
   };
 
   useEffect(() => {
