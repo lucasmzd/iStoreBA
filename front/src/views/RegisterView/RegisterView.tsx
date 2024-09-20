@@ -3,8 +3,14 @@ import React, { useEffect, useState } from "react";
 import { IRegisterProps } from "../../interfaces/types";
 import { IRegisterErrors } from "../../interfaces/types";
 import { validateRegisterForm } from "../../helpers/validate";
+import { register } from "@/helpers/auth.helper";
+import Swal from "sweetalert2";
+import { useRouter } from "next/navigation";
 
 const RegisterView: React.FC = () => {
+
+  const router =useRouter()
+
   const initialState = {
     email: "",
     password: "",
@@ -21,9 +27,14 @@ const RegisterView: React.FC = () => {
     setUserData({ ...userData, [name]: value });
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    alert("Se envio el formulario");
+    await register(userData)
+    Swal.fire({
+      title: "Registered successfully!",
+      icon: "success"
+    });
+    router.push("/login")
   };
 
   useEffect(() => {
@@ -97,7 +108,6 @@ const RegisterView: React.FC = () => {
           />
           {errors.phone && <p>{errors.phone}</p>}
         </div>
-
         <button type="submit">Sign Up</button>
       </form>
     </div>
