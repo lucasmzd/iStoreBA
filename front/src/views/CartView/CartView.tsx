@@ -1,6 +1,7 @@
 "use client";
 import { createOrder } from "@/helpers/orders.helper";
 import { IProduct, IUserSession } from "@/interfaces/types";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
@@ -63,7 +64,13 @@ const CartView = () => {
       </div>
       <div>
         <p>Total: ${totalCart}</p>
-        <button onClick={handleClick}>Checkout</button>
+        {
+          cart.length <= 0 ? (
+            <Link href="/">Continue Shopping</Link>
+          ) : (
+            <button onClick={handleClick}>Checkout</button>
+          )
+        }
       </div>
     </div>
   );
