@@ -28,6 +28,8 @@ const LoginView: React.FC = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const response = await login(userData)
+    const {token, user} = response
+    localStorage.setItem("userSession", JSON.stringify({token, user}))
     Swal.fire({
       title: "Login successfully!",
       icon: "success"
