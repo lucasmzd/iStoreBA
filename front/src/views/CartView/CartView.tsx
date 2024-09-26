@@ -43,37 +43,61 @@ const CartView = () => {
     localStorage.setItem("cart", "[]");
   };
 
+  const handleClearCart = () => {
+    setCart([]);
+    setTotalCart(0);
+    localStorage.setItem("cart", "[]");
+    Swal.fire({
+      title: "Cart cleared!",
+      icon: "success",
+    });
+  };
+
   return (
-    <div className="flex flex-col items-center justify-center bg-gray-100 my-8">
-      <div className="bg-white p-8 rounded shadow-md w-96 mb-4">
+    <div className="flex flex-col items-center justify-center bg-gray-100 my-8 w-full">
+      <div className="bg-white p-6 rounded shadow-md w-full max-w-5xl mb-4 relative">
         <h1 className="text-2xl font-bold mb-4 text-center">Cart</h1>
+        <button
+          onClick={handleClearCart}
+          className="absolute top-6 right-6 bg-blue-600 text-white py-1 px-3 rounded hover:bg-blue-700 transition"
+        >
+          Clear Cart
+        </button>
         {cart && cart.length > 0 ? (
           cart?.map((item: IProduct) => {
             return (
-              <div key={item.id} className="flex items-center justify-between mb-4">
-                <img src={item.image} alt={"Product image " + item.name} className="w-16 h-16 object-cover" />
-                <div className="flex flex-col">
-                  <p className="text-lg font-semibold">{item.name}</p>
-                  <p className="text-sm">Price: ${item.price}</p>
+              <div key={item.id} className="flex items-start w-full mb-4">
+                <img
+                  src={item.image}
+                  alt={"Product image " + item.name}
+                  className="w-32 h-32 object-cover mr-6"
+                />
+                <div className="flex flex-col justify-start">
+                  <p className="text-lg font-semibold mt-2">{item.name}</p>
+                  <p className="text-md text-gray-700 mt-2">Price: ${item.price.toFixed(2)}</p>
                 </div>
               </div>
             );
           })
         ) : (
-          <p className="text-center">Your cart is empty</p>
-        )}
-        <div className="flex flex-col items-center mt-4">
-          <p className="text-lg font-semibold">Total: ${totalCart}</p>
-          {cart.length <= 0 ? (
-            <Link href="/" className="text-blue-600 hover:text-blue-800 transition mt-4">
+          <div className="text-center">
+            <p className="text-lg font-semibold mb-4">Your cart is empty</p>
+            <Link href="/" className="text-blue-600 hover:text-blue-800 transition">
               Continue Shopping
             </Link>
-          ) : (
-            <button onClick={handleClick} className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition mt-4">
+          </div>
+        )}
+        {cart.length > 0 && (
+          <div className="flex justify-between items-center mt-4">
+            <p className="text-lg font-bold mr-4">Total: ${totalCart.toFixed(2)}</p>
+            <button
+              onClick={handleClick}
+              className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition"
+            >
               Checkout
             </button>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );
