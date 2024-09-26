@@ -44,33 +44,36 @@ const CartView = () => {
   };
 
   return (
-    <div className="flex flex-row items-center justify-between w-full p-4">
-      <div>
+    <div className="flex flex-col items-center justify-center bg-gray-100 my-8">
+      <div className="bg-white p-8 rounded shadow-md w-96 mb-4">
+        <h1 className="text-2xl font-bold mb-4 text-center">Cart</h1>
         {cart && cart.length > 0 ? (
-          cart?.map((cart: IProduct) => {
+          cart?.map((item: IProduct) => {
             return (
-              <div key={cart.id}>
-                <div>
-                  <img src={cart.image} alt={"Product image" + cart.name} />
-                  <p>{cart.name}</p>
-                  <p>Price: ${cart.price}</p>
+              <div key={item.id} className="flex items-center justify-between mb-4">
+                <img src={item.image} alt={"Product image " + item.name} className="w-16 h-16 object-cover" />
+                <div className="flex flex-col">
+                  <p className="text-lg font-semibold">{item.name}</p>
+                  <p className="text-sm">Price: ${item.price}</p>
                 </div>
               </div>
             );
           })
         ) : (
-          <p>Your cart is empty</p>
+          <p className="text-center">Your cart is empty</p>
         )}
-      </div>
-      <div>
-        <p>Total: ${totalCart}</p>
-        {
-          cart.length <= 0 ? (
-            <Link href="/">Continue Shopping</Link>
+        <div className="flex flex-col items-center mt-4">
+          <p className="text-lg font-semibold">Total: ${totalCart}</p>
+          {cart.length <= 0 ? (
+            <Link href="/" className="text-blue-600 hover:text-blue-800 transition mt-4">
+              Continue Shopping
+            </Link>
           ) : (
-            <button onClick={handleClick}>Checkout</button>
-          )
-        }
+            <button onClick={handleClick} className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition mt-4">
+              Checkout
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

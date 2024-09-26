@@ -1,9 +1,10 @@
 import CardList from "@/components/CardList/CardList";
+import { Component } from "@/components/Carousel/Carousel";
 
 const HomeView = () => {
   return (
-    <div className="mt-6 mb-6">
-      <h1>Home</h1>
+    <div className="">
+      <Component />
       <CardList />
     </div>
   );

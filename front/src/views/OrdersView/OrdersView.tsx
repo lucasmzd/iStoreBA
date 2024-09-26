@@ -29,26 +29,29 @@ const OrdersView = () => {
   }, [userData?.user]);
 
   return (
-    <div>
+    <div className="flex flex-col items-center justify-center bg-gray-100 my-8">
       {orders && orders.length > 0 ? (
-        orders?.map((orders: IOrder) => {
+        orders?.map((order: IOrder) => {
           return (
-            <div key={orders.id}>
-              <div>
-                <p>{new Date(orders.date)?.toLocaleDateString()}</p>
-                <p>Status: {orders.status.toLocaleUpperCase()}</p>
+            <div key={order.id} className="bg-white p-8 rounded shadow-md w-96 mb-4">
+              <div className="text-center">
+                <p className="text-sm mb-2">{new Date(order.date)?.toLocaleDateString()}</p>
+                <p className="text-lg font-semibold">Status: {order.status.toLocaleUpperCase()}</p>
               </div>
             </div>
           );
         })
       ) : (
-        <div>
-          <p>No products in orders</p>
-          <Link href="/">Shopping</Link>
+        <div className="bg-white p-8 rounded shadow-md w-96 text-center">
+          <p className="text-lg font-semibold mb-4">No products in orders</p>
+          <Link href="/" className="text-blue-600 hover:text-blue-800 transition">
+            Go Shopping
+          </Link>
         </div>
       )}
     </div>
   );
 };
+  
 
 export default OrdersView;

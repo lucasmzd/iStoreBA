@@ -15,17 +15,16 @@ const NavBar = () => {
   }, [pathname]);
 
   return (
-    <nav className="fixed inset-x-0 top-0 z-30 mx-auto w-full max-w-screen-md border border-gray-100 bg-white/80 py-3 shadow backdrop-blur-lg md:top-6 md:rounded-3xl lg:max-w-screen-lg">
-      <div className="px-4">
-        <div className="flex items-center justify-between">
+    <nav className="inset-x-0 top-0 z-30 mx-auto w-full max-w-screen-lg md:max-w-screen-xl lg:max-w-[1200px] border border-gray-100 bg-white/80 py-3 shadow backdrop-blur-lg md:top-6 md:rounded-3xl">
+        <div className="px-4 flex items-center justify-between">
           <div className="flex shrink-0">
             <Link aria-current="page" className="flex items-center" href="/">
               <img
-                className="h-7 w-auto"
-                src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
+                className="h-12 w-auto"
+                src="https://i.imgur.com/UFkZ1rk.png"
                 alt=""
               />
-              <p className="sr-only">Website Title</p>
+              <p className="sr-only">iStore BA</p>
             </Link>
           </div>
           <div className="hidden md:flex md:items-center md:justify-center md:gap-5">
@@ -71,7 +70,6 @@ const NavBar = () => {
             </div>
           )}
         </div>
-      </div>
     </nav>
   );
 };

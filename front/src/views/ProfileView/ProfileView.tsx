@@ -22,13 +22,17 @@ const ProfileView = () => {
     router.push("/");
   }
   return (
-    <div>
-      <h1>Profile</h1>
-      <h3>Bienvenido {userData?.user.name}</h3>
-      <p>Email: {userData?.user.email}</p>
-      <p>Phone: {userData?.user.phone}</p>
-      <p>Address: {userData?.user.address}</p>
-      <button onClick={handleClick} disabled={false}>Logout</button>
+    <div className="flex flex-col items-center justify-center bg-gray-100 my-12">
+      <div className="bg-white p-8 rounded shadow-md w-96">
+        <h1 className="text-2xl font-bold mb-4 text-center">Profile</h1>
+        <h3 className="text-lg mb-2 text-center">Bienvenido, {userData?.user.name}</h3>
+        <p className="text-sm mb-1 text-center">Email: {userData?.user.email}</p>
+        <p className="text-sm mb-1 text-center">Phone: {userData?.user.phone}</p>
+        <p className="text-sm mb-4 text-center">Address: {userData?.user.address}</p>
+        <button onClick={handleClick} className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
+          Logout
+        </button>
+      </div>
     </div>
   );
 };

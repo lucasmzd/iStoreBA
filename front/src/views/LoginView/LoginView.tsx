@@ -43,37 +43,44 @@ const LoginView: React.FC = () => {
   }, [userData]);
 
   return (
-    <div>
-      <div>
-        <h1>Login</h1>
+    <div className="flex items-center justify-center h-screen bg-gray-100">
+      <div className="bg-white p-8 rounded shadow-md w-96">
+        <h1 className="text-2xl font-bold mb-6 text-center">Login</h1>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label htmlFor="email_address" className="block text-sm font-medium text-gray-700">Email</label>
+            <input
+              id="email_address"
+              name="email"
+              type="email"
+              value={userData.email}
+              onChange={handleChange}
+              placeholder="user@example.com"
+              className="mt-1 p-2 border border-gray-300 rounded w-full focus:ring focus:ring-blue-300"
+            />
+            {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
+          </div>
+          <div className="mb-4">
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              value={userData.password}
+              onChange={handleChange}
+              placeholder="•••••••"
+              className="mt-1 p-2 border border-gray-300 rounded w-full focus:ring focus:ring-blue-300"
+            />
+            {errors.password && <p className="text-red-500 text-xs">{errors.password}</p>}
+          </div>
+          <button 
+            type="submit" 
+            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+          >
+            Sign In
+          </button>
+        </form>
       </div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email_address">Email</label>
-          <input
-            id="email_address"
-            name="email"
-            type="email"
-            value={userData.email}
-            onChange={handleChange}
-            placeholder="user@example.com"
-          />
-          {errors.email && <p>{errors.email}</p>}
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            value={userData.password}
-            onChange={handleChange}
-            placeholder="•••••••"
-          />
-          {errors.password && <p>{errors.password}</p>}
-        </div>
-        <button type="submit">Sign In</button>
-      </form>
     </div>
   );
 };
