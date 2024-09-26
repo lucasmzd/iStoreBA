@@ -14,28 +14,13 @@ const Footer = () => {
           </a>
           <ul className="text-lg flex items-center justify-center flex-col gap-7 md:flex-row md:gap-12 transition-all duration-500 py-5">
             <li>
-              <a href="#" className="text-gray-800 hover:text-gray-900">
-                Pagedone
-              </a>
-            </li>
-            <li>
-              <a href="#" className=" text-gray-800 hover:text-gray-900">
+              <a href="/" className=" text-gray-800 hover:text-gray-900">
                 Products
               </a>
             </li>
             <li>
-              <a href="#" className=" text-gray-800 hover:text-gray-900">
-                Resources
-              </a>
-            </li>
-            <li>
-              <a href="#" className=" text-gray-800 hover:text-gray-900">
-                Blogs
-              </a>
-            </li>
-            <li>
-              <a href="#" className=" text-gray-800 hover:text-gray-900">
-                Support
+              <a href="/about" className=" text-gray-800 hover:text-gray-900">
+                About
               </a>
             </li>
           </ul>
