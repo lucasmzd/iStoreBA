@@ -12,7 +12,7 @@ export async function getProductsDB(): Promise<IProduct[]> {
     }
 }
 
-export async function getProductsById(id: string): Promise<IProduct[]> {
+export async function getProductsById(id: string): Promise<IProduct> {
     try {
         const products: IProduct[] = await getProductsDB();
         const productFiltered = products.find((product) => product.id.toString() === id);

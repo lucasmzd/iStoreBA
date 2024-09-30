@@ -57,12 +57,14 @@ const CartView = () => {
     <div className="flex flex-col items-center justify-center bg-gray-100 my-8 w-full">
       <div className="bg-white p-6 rounded shadow-md w-full max-w-5xl mb-4 relative">
         <h1 className="text-2xl font-bold mb-4 text-center">Cart</h1>
-        <button
-          onClick={handleClearCart}
-          className="absolute top-6 right-6 bg-blue-600 text-white py-1 px-3 rounded hover:bg-blue-700 transition"
-        >
-          Clear Cart
-        </button>
+        {cart.length > 0 && (
+          <button
+            onClick={handleClearCart}
+            className="absolute top-6 right-6 bg-blue-600 text-white py-1 px-3 rounded hover:bg-blue-700 transition"
+          >
+            Clear Cart
+          </button>
+        )}
         {cart && cart.length > 0 ? (
           cart?.map((item: IProduct) => {
             return (
